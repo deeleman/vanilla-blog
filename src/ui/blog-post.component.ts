@@ -1,10 +1,11 @@
+import { slugify } from './ui.helpers';
 import { Component } from './ui.models';
 import { BlogPost } from '../data';
 
 export class BlogPostComponent implements Component {
   compile(post: BlogPost): string {
     return (`\n
-      <article class="blog-post-card blog-post-card--${post.groups[0].name.toLowerCase().replace(' ', '-')} col-4">
+      <article class="blog-post-card blog-post-card--${slugify(post.groups[0].name)} col-4">
         <header class="blog-post-card__header">
           <h5 class="p-muted-heading">
             ${post.groups[0].name}
