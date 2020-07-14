@@ -1,6 +1,9 @@
 import { RawBlogPosts, BlogPost, BlogPosts } from './data.models';
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
 
@@ -24,7 +27,7 @@ export const blogPostsSerializer = (rawBlogPosts: RawBlogPosts): BlogPosts => {
     date: formatDate(rawBlogPost.date),
     imageSourceUrl: rawBlogPost._embedded['wp:featuredmedia'][0].source_url,
     groups: rawBlogPost
-      ._embedded['wp:term'][3]
+      ._embedded['wp:term'][3] // eslint-disable-line @typescript-eslint/no-magic-numbers
       .filter((term) => term.taxonomy === 'group')
       .map(({ name, link }) => ({ name, link })),
   }));

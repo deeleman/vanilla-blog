@@ -1,4 +1,4 @@
-import { RawBlogPosts, Settings } from './data.models';
+import { RawBlogPosts, Settings, HttpStatus } from './data.models';
 
 /**
  * Fetches blog post entries from the remote data source given with pagination features
@@ -10,7 +10,7 @@ export const blogPostsHttpClient = (settings: Settings): Promise<RawBlogPosts> =
 
   return fetch(fullApiUrl)
     .then((response) => {
-      if (response.ok && response.status >= 200 && response.status <300) {
+      if (response.ok && response.status >= HttpStatus.Success && response.status < HttpStatus.Redirect) {
         return response.json();
       } else {
         throw new Error(response.statusText);

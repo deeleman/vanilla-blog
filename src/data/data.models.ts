@@ -34,3 +34,12 @@ export type Settings = Readonly<{
   pageSize: number;
   pageIndex: number;
 }>;
+
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+export const enum HttpStatus {
+  Success = 200,
+  Redirect = 300,
+  ClientError = 400,
+  ServerError = 500
+}
+/* eslint-enable @typescript-eslint/no-magic-numbers */
