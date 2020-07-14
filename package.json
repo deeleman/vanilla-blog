@@ -13,7 +13,7 @@
     "start": "parcel src/index.html -p 8888",
     "build": "parcel build src/index.html",
     "test": "jest",
-    "lint": "eslint src/**/*.*"
+    "lint": "eslint src/**/*.ts --no-error-on-unmatched-pattern"
   },
   "dependencies": {
     "promise-polyfill": "8.1.3",
@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "^3.6.1",
     "babel-jest": "26.1.0",
     "eslint": "7.4.0",
+    "eslint-plugin-html": "^6.0.2",
     "jest": "26.1.0",
     "node-sass": "4.14.1",
     "parcel-bundler": "1.12.4",
