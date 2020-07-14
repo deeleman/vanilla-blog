@@ -1,0 +1,19 @@
+// Custom mixins
+@mixin column-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin column-layout-main-element {
+  @include column-layout;
+  flex: 2;
+}
+
+@mixin expand-within-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}

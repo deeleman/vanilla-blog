@@ -1,0 +1,27 @@
+// Vanilla imports
+@import 'node_modules/vanilla-framework/scss/vanilla';
+@import 'node_modules/vanilla-framework/scss/patterns_icons';
+@import 'node_modules/vanilla-framework/scss/patterns_muted-heading';
+@import 'node_modules/vanilla-framework/scss/patterns_grid';
+@import 'node_modules/vanilla-framework/scss/patterns_card';
+@import 'node_modules/vanilla-framework/scss/utilities_animations';
+@import 'node_modules/vanilla-framework/scss/utilities_content-align';
+@import 'node_modules/vanilla-framework/scss/utilities_vertically-center';
+@import 'node_modules/vanilla-framework/scss/utilities_equal-height';
+@import 'node_modules/vanilla-framework/scss/utilities_clearfix';
+@import 'node_modules/vanilla-framework/scss/utilities_margin-collapse';
+@import 'node_modules/vanilla-framework/scss/utilities_padding-collapse';
+
+// Required base Vanilla styles
+@include vf-base;
+
+// Required Vanilla components
+@include vf-p-grid;
+@include vf-p-links;
+@include vf-p-card;
+@include vf-p-icons;
+@include vf-p-muted-heading;
+
+// Required Vanilla utilities
+@include vf-u-animations;
+@include vf-u-vertically-center;

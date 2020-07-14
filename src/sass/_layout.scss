@@ -1,0 +1,82 @@
+html,
+body {
+  height: 100%;
+  background-color: $color-light;
+}
+
+.app {
+  height: 100%;
+
+  &.u-vertically-center {
+    justify-content: center;
+  }
+
+  &__loading-header {
+    color: $color-mid;
+  }
+
+  &__error {
+    color: $color-negative;
+  }
+}
+
+.blog-posts {
+  padding: 1rem;
+}
+
+.blog-post-card {
+  @extend .p-card--highlighted;
+  @include vf-highlight-bar($color-mid-dark);
+  @include column-layout;
+  
+  &--cloud-and-server {
+    @include vf-highlight-bar($color-group-cloud-and-server);
+  }
+  
+  &--canonical-announcements {
+    @include vf-highlight-bar($color-group-canonical-announcements);
+  }
+  
+  &--internet-of-things {
+    @include vf-highlight-bar($color-group-internet-of-things);
+  }
+  
+  &--desktop {
+    @include vf-highlight-bar($color-group-desktop);
+  }
+
+  &__content {
+    @extend .p-card__content;
+    @include column-layout-main-element;
+    padding: .5rem .3rem;
+
+    .content__image {
+      position: relative;
+      margin-bottom: .5rem;
+    
+      &::before {
+        content: '';
+        display: block;
+        padding-top: 56.25%;
+      }
+    
+      & a,
+      & img {
+        @include expand-within-container;
+      }
+    }
+
+    .content__title {
+      @include column-layout-main-element;
+    }
+  }
+  
+  &__footer {
+    padding: 1rem .5rem 0;
+  }
+
+  &__content,
+  &__footer {
+    border-top: 1px dotted $color-mid-light;
+  }
+}
