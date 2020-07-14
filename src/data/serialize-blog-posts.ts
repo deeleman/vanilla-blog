@@ -14,7 +14,7 @@ const formatDate = (dateString: string): string => {
  * Transforms a raw RawBlogPosts data graph object into a BlogPost instance objects array
  * @param rawBlogPosts Raw data recordset featuring blog posts (conforming to WordPress posts data schema)
  */
-export const blogPostsSerializer = (rawBlogPosts: RawBlogPosts): BlogPosts => {
+export const serializeBlogPosts = (rawBlogPosts: RawBlogPosts): BlogPosts => {
   return rawBlogPosts.map<BlogPost>((rawBlogPost) => ({
     id: rawBlogPost.id,
     title: rawBlogPost.title.rendered,

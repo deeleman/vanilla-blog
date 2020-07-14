@@ -2,13 +2,13 @@ import './polyfills';
 
 import settings from './settings';
 import { BlogComponent, ErrorComponent } from './ui';
-import { blogPostsHttpClient, blogPostsSerializer } from './data';
+import { fetchBlogPosts, serializeBlogPosts } from './data';
 
 const blogComponent = new BlogComponent();
 const errorComponent = new ErrorComponent();
 const renderApp = (html: string): void => { document.querySelector('.app')!.innerHTML = html };
 
-blogPostsHttpClient(settings)
-  .then(blogPostsSerializer)
+fetchBlogPosts(settings)
+  .then(serializeBlogPosts)
   .then(blogComponent.compile, errorComponent.compile)
   .then(renderApp);
