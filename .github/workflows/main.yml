@@ -22,6 +22,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    # Dependencies installation
+    - name: Dependencies installation
+      run: yarn
+
     # Runs code linter and unit tests
     - name: Lint and testing
       run: |
@@ -29,5 +33,5 @@ jobs:
         yarn lint
 
     # Code build
-    - name: Build
+    - name: Build Blog Application
       run: yarn build
