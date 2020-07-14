@@ -36,7 +36,7 @@ export type Settings = Readonly<{
 }>;
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-export const enum HttpStatus {
+export enum HttpStatus {
   Success = 200,
   Redirect = 300,
   ClientError = 400,

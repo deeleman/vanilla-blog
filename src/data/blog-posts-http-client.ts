@@ -13,7 +13,7 @@ export const blogPostsHttpClient = (settings: Settings): Promise<RawBlogPosts> =
       if (response.ok && response.status >= HttpStatus.Success && response.status < HttpStatus.Redirect) {
         return response.json();
       } else {
-        throw new Error(response.statusText);
+        throw new Error(`HTTP Error ${response.status}`);
       }
     })
     .then((data) => data as RawBlogPosts)
