@@ -6,7 +6,7 @@ export class BlogComponent implements Component {
   compile(posts: BlogPosts): string {
     const childBlogPosts = posts.reduce((html, post) => {
       const component = new BlogPostComponent();
-      return html + component.compile(post);
+      return `${html}\n${component.compile(post)}`;
     }, '');
 
     return `
