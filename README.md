@@ -1,4 +1,6 @@
 # Vanilla Blog
+![CI](https://github.com/deeleman/vanilla-blog/workflows/CI/badge.svg)
+
 A humble POC of a Blog posts row design leveraging the Vanilla framework.
 
 ### License
