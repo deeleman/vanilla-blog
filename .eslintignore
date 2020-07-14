@@ -3,7 +3,6 @@
 /docs/**
 /jsdoc/**
 /test**
-/test**
 /tmp/**
 /node_modules/**
 /src/favicon.png
