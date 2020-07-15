@@ -1,6 +1,7 @@
 # Vanilla Blog
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c2a9a0cf-8752-4aa1-8066-df2a5d6f79e2/deploy-status)](https://app.netlify.com/sites/jovial-borg-cf1799/deploys)
 [![Build Status](https://travis-ci.org/deeleman/vanilla-blog.svg?branch=master)](https://travis-ci.org/deeleman/vanilla-blog)
+[![Coverage Status](https://coveralls.io/repos/github/deeleman/vanilla-blog/badge.svg?branch=master)](https://coveralls.io/github/deeleman/vanilla-blog?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Vanilla Blog is a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/), along with custom SASS, TypeScript and plain HTML code. For the sake of cross-browser compatibility, this project implements polyfills and coding strategies to extend support to old legacy browsers, such as MSIE11.
