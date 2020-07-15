@@ -1,6 +1,6 @@
 {
   "name": "vanilla-blog",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "POC for a Blog UI implementation leveraging the Vanilla framework",
   "main": "main.js",
   "author": "Pablo Deeleman",
