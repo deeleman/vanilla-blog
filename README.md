@@ -1,41 +1,57 @@
 # Vanilla Blog
-![CI](https://github.com/deeleman/vanilla-blog/workflows/CI/badge.svg) 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c2a9a0cf-8752-4aa1-8066-df2a5d6f79e2/deploy-status)](https://app.netlify.com/sites/jovial-borg-cf1799/deploys)
+![CI](https://github.com/deeleman/vanilla-blog/workflows/CI/badge.svg?branch=master&event=push)
+<img src="coverage/coverage.svg" >
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+Vanilla Blog is a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/), along with custom SASS, TypeScript and plain HTML code. For the sake of cross-browser compatibility, this project implements polyfills and coding strategies to extend support to old legacy browsers, such as MSIE11.
 
-Vanilla Blog is part of a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/). along with SASS, TypeScript and plain HTML. For the sake of compatibilty, this project implements polyfills and coding strategies to extend support to old legacy MSIE11 browsers.
+<img width="1279" alt="Screen Shot 2020-07-15 at 1 33 25 AM" src="https://user-images.githubusercontent.com/1104146/87541318-5b2e0b80-c6a1-11ea-8f59-00fcbf86e3be.png">
 
-A **live example** of the current status of this project can be seen at https://my-vanilla-blog.netlify.app.
+A **live running build** of this project is available at https://my-vanilla-blog.netlify.app.
 
 ## Setting up your environment
-Before you start please make sure you comply with the minimum requirements: `node v12.16.0` or later and the `npm v.6.14.15` CLI or later. This project relies on [Parcel](https://parceljs.org/) for spawning dev environments, running builds and handling code optimisations. The interaction with Parcel has been abstracted within npm commands for your convenience.
+The minimum requirements for running this project, either on development or production mode, and its development scripts are `node v12.16.0` and `npm v.6.14.15`, or later versions. Probably this project will run smoothly on older versions of `node` and `npm` but we recommend using the latest [LTS versions](https://nodejs.org/).
+
+This project relies on [Parcel](https://parceljs.org/) for spawning dev environments, running builds and handling code optimisations. All interaction with Parcel has been abstracted in custom npm commands for your convenience.
 
 ### Installing dependencies
-Once you have checked your node and npm versions, you will want to run either `npm install` or `yarn` to pull all the necessary dependencies for this project.
+As a first step to spawn a development environment or production build, please run either `yarn` or `npm install` to pull all the required dependencies for this project.
 
 ### Configuring the project settings (optional)
-The project fetches data from a remote API endpoint conforming to the WordPress feed schema and has been configured to fetch 3 items only from the first page of a paginated recordset.
 
-If you ever need to change these settings (which have been already populated for you), go to `/src/settings` and feel free to change the data configured for:
-* `apiUrl`: URL of the remote API endpoint whose WordPress will be consumed.
-* `pageSize`: Maximum number of items on display.
+> **Please note**: This step is optional and the project is shipped with all settings preconfigured by default. Feel free to skip to the next section if you do not want to customize data output.
+
+The project fetches data from a remote WordPress API endpoint. Particularly, the project will fetch by default 3 items only from the first page of a paginated recordset.
+
+You can update this setup by accessing `/src/settings` and editing the following parameters:
+* `apiUrl`: URL for the remote Wordpress API endpoint installation.
+* `pageSize`: Number of items to display.
 * `pageIndex`: Current page, as a zero-based integer.
 
-Please build the project after updating this information, unless you have spawned a development environemnt (please see below), in which case the system will recompile the front-end code itself when necessary.
+You will want to rebuild the project after updating these settings, although this action will be automatically triggered by Parcel when running the application in development mode.
 
 ## Firing up a development environment
-You can spawn a development environment by running `yarn start` (or `npm run start`) in the console. The system will generate all the artifacts and assets and the compiled site will become available from http://localhost:8888 in _watch mode_ (the site will be recompiled upon changes on the source code).
+You can spawn a development environment by running `yarn start` or `npm run start` in the console.
+
+The system will generate all the artifacts and assets and the compiled site will be available at http://localhost:8888 in _watch mode_, so the application will be recompiled upon changes on the source code.
 
 ## Building the project for production
-Please execute `yarn build` (or `npm run build`) in your terminal window. Parcel will navigate through the entire application tree and build the site within the `/dist` folder. All files will be conveniently hashed to prevent caching issues.
+Please execute `yarn build` or `npm run build` in your terminal window. 
+
+Parcel will navigate through the entire application tree and build the site into the `/dist` folder. All files will be conveniently hashed to prevent caching issues.
 
 ## Code linting and testing
-The code in this application is very strictly audited with both 
-[eslint](https://eslint.org/), and [jest](https://jestjs.io/). The following commands have been made available for your convenience:
+The code in this application is audited with 
+[ESLint](https://eslint.org/) to ensure code quality, and unit tests built with [Jest](https://jestjs.io/). The following commands have been made available for your convenience:
 
-- `yarn lint`: conducts linting on TypesCript files.
-- `yarn test`: runs the application unit tests.
+- `yarn lint`: lints all TypeScript files, reporting code quality issues if any.
+- `yarn test`: runs all the application unit tests.
 
+### Code coverage reports
+[Jest](https://jestjs.io/) has been configured to generate a full code coverage report in HTML every time the `test` command is executed. This coverage report can be found at `/coverage/lcov-report` when running tests in your local environment.
+
+The badge featured at the top of this README document is automatically generated on each test run to reflect the latest coverage rate.
 
 ## Distributed under the MIT License
 
