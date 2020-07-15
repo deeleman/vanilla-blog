@@ -27,8 +27,9 @@ export const serializeBlogPosts = (rawBlogPosts: RawBlogPosts): BlogPosts => {
     date: formatDate(rawBlogPost.date),
     imageSourceUrl: rawBlogPost._embedded['wp:featuredmedia'][0].source_url,
     groups: rawBlogPost
-      ._embedded['wp:term'][3] // eslint-disable-line @typescript-eslint/no-magic-numbers
-      .filter((term) => term.taxonomy === 'group')
+      ._embedded['wp:term']
+      .reduce((arr, nestedArray) => [...arr, ...nestedArray], [])
+      .filter((term) => term.taxonomy === 'group' || term.taxonomy === 'category')
       .map(({ name, link }) => ({ name, link })),
   }));
 };

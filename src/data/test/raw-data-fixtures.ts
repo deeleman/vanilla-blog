@@ -1769,7 +1769,7 @@ export const rawDataFixtures = [
             "link": "https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/",
             "name": "Cloud and server",
             "slug": "cloud-and-server",
-            "taxonomy": "group",
+            "taxonomy": "category",
             "_links": {
               "self": [
                 {

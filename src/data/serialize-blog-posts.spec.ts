@@ -45,14 +45,16 @@ describe('serializeBlogPosts', () => {
       .toEqual(dataFixtures[2].imageSourceUrl);
   });
 
-  it('should populate the "groups" property of the serialized post with the data extracted from the "wp:term" property', () => {
+  it('should populate the "groups" property with the data extracted from the "group" taxonomy property of the "wp:term" element', () => {
     expect(serializedBlogPosts[0].groups)
       .toEqual(dataFixtures[0].groups);
 
     expect(serializedBlogPosts[1].groups)
       .toEqual(dataFixtures[1].groups);
+  });
 
-    expect(serializedBlogPosts[2].groups)
-      .toEqual(dataFixtures[2].groups);
+  it('should populate the "groups" property with the data extracted from the "category" taxonomy property if no "group" is available', () => {
+    expect(serializedBlogPosts[0].groups)
+      .toEqual(dataFixtures[0].groups);
   });
 });
