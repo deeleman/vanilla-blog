@@ -1,6 +1,6 @@
 # Vanilla Blog
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c2a9a0cf-8752-4aa1-8066-df2a5d6f79e2/deploy-status)](https://app.netlify.com/sites/jovial-borg-cf1799/deploys)
-![CI](https://github.com/deeleman/vanilla-blog/workflows/CI/badge.svg?branch=master&event=push)
+[![Build Status](https://travis-ci.org/deeleman/vanilla-blog.svg?branch=master)](https://travis-ci.org/deeleman/vanilla-blog)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Vanilla Blog is a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/), along with custom SASS, TypeScript and plain HTML code. For the sake of cross-browser compatibility, this project implements polyfills and coding strategies to extend support to old legacy browsers, such as MSIE11.
@@ -19,7 +19,7 @@ As a first step to spawn a development environment or production build, please r
 
 ### Configuring the project settings (optional)
 
-> **Please note**: This step is optional and the project is shipped with all settings preconfigured by default. Feel free to skip to the next section if you do not want to customize data output.
+> **Please note**: This step is optional and the project is shipped with all settings preconfigured by default. Feel free to skip to the next section if you do not want to customize your data preferences.
 
 The project fetches data from a remote WordPress API endpoint. Particularly, the project will fetch by default 3 items only from the first page of a paginated recordset.
 
