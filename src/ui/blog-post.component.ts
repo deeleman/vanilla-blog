@@ -19,11 +19,11 @@ export class BlogPostComponent implements Component {
             </a>
           </div>
     
-          <h3 class="content__title">
+          <h4 class="content__title">
             <a href="${post.link}">
              ${post.title}
             </a>
-          </h3>
+          </h4>
     
           <address>
             by <a href="${post.author.link}" rel="author">${post.author.name}</a> 
