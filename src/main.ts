@@ -11,6 +11,7 @@ const bootstrap = (selector: string, settings: Settings): Promise<void> =>
   fetchBlogPosts(settings)
     .then(serializeBlogPosts)
     .then(blogComponent.compile, errorComponent.compile)
-    .then(renderHtml.bind(null, selector));
+    .catch(errorComponent.compile)
+    .then(renderHtml.bind(null, selector))
 
 bootstrap('.app', settings);
