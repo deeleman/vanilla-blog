@@ -45,7 +45,7 @@ describe('serializeBlogPosts', () => {
       .toEqual(dataFixtures[2].imageSourceUrl);
   });
 
-  it('should populate the "groups" property with the data extracted from the "group" taxonomy property of the "wp:term" element', () => {
+  it('should populate "groups" data with data extracted from the "group" taxonomy prop of "wp:term" element', () => {
     expect(serializedBlogPosts[0].groups)
       .toEqual(dataFixtures[0].groups);
 
@@ -53,7 +53,7 @@ describe('serializeBlogPosts', () => {
       .toEqual(dataFixtures[1].groups);
   });
 
-  it('should populate the "groups" property with the data extracted from the "category" taxonomy property if no "group" is available', () => {
+  it('should populate "groups" data with data extracted from the "category" taxonomy prop if no "group" is available', () => {
     expect(serializedBlogPosts[0].groups)
       .toEqual(dataFixtures[0].groups);
   });
