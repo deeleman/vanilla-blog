@@ -1,7 +1,6 @@
 # Vanilla Blog
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c2a9a0cf-8752-4aa1-8066-df2a5d6f79e2/deploy-status)](https://app.netlify.com/sites/jovial-borg-cf1799/deploys)
 ![CI](https://github.com/deeleman/vanilla-blog/workflows/CI/badge.svg?branch=master&event=push)
-<img src="coverage/coverage.svg" >
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Vanilla Blog is a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/), along with custom SASS, TypeScript and plain HTML code. For the sake of cross-browser compatibility, this project implements polyfills and coding strategies to extend support to old legacy browsers, such as MSIE11.
@@ -50,8 +49,6 @@ The code in this application is audited with
 
 ### Code coverage reports
 [Jest](https://jestjs.io/) has been configured to generate a full code coverage report in HTML every time the `test` command is executed. This coverage report can be found at `/coverage/lcov-report` when running tests in your local environment.
-
-The badge featured at the top of this README document is automatically generated on each test run to reflect the latest coverage rate.
 
 ## Distributed under the MIT License
 

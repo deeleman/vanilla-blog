@@ -14,7 +14,6 @@
     "prebuild": "rimraf ./dist",
     "build": "parcel build src/index.html",
     "test": "jest",
-    "posttest": "coverage-badger -r coverage/clover.xml -d coverage/",
     "lint": "eslint src/**/*.ts --no-error-on-unmatched-pattern"
   },
   "dependencies": {
@@ -30,7 +29,6 @@
     "@typescript-eslint/eslint-plugin": "3.6.1",
     "@typescript-eslint/parser": "3.6.1",
     "babel-jest": "26.1.0",
-    "coverage-badger": "1.0.1",
     "eslint": "7.4.0",
     "eslint-plugin-html": "6.0.2",
     "jest": "26.1.0",
