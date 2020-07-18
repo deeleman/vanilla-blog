@@ -15,7 +15,7 @@ body {
     color: $color-mid;
   }
 
-  &__error {
+  &__error :first-child {
     color: $color-negative;
   }
 }

@@ -3,10 +3,12 @@ import { Component } from './ui.models';
 export class ErrorComponent implements Component {
   compile(error: Error): string {
     return `
-      <h2 class="app__error u-align-text--center p-heading--three">
-        <i class="p-icon--error"></i> Ups! An Error occured:
-        <br> ${error.message}
-      </h2>
+      <div class="app__error u-align-text--center">
+        <h2 class="p-heading--three u-no-margin--bottom">
+          Ups! An error occured
+        </h2>
+        <p class="p-heading--five app__error-description">${error.message}</p>
+      </div>
     `;
   }
 }

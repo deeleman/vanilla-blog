@@ -1,4 +1,4 @@
-import { RawBlogPosts, BlogPost, BlogPosts } from './data.models';
+import { RawBlogPosts, RawBlogPost, BlogPost, BlogPosts } from './data.models';
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -10,6 +10,14 @@ const formatDate = (dateString: string): string => {
   return [date.getUTCDate(), months[date.getUTCMonth()], date.getFullYear()].join(' ');
 };
 
+const fetchImageSourceUrl = (rawBlogPost: RawBlogPost):string => {
+  try {
+    return rawBlogPost._embedded['wp:featuredmedia'][0].source_url;
+  } catch {
+    throw new Error(`Blog post #${rawBlogPost.id}, titled as ${rawBlogPost.title}, does not feature an image.`)
+  }
+};
+
 /**
  * Transforms a raw RawBlogPosts data graph object into a BlogPost instance objects array
  * @param rawBlogPosts Raw data recordset featuring blog posts (conforming to WordPress posts data schema)
@@ -19,13 +27,10 @@ export const serializeBlogPosts = (rawBlogPosts: RawBlogPosts): BlogPosts => {
     id: rawBlogPost.id,
     title: rawBlogPost.title.rendered,
     link: rawBlogPost.link,
-    author: {
-      // Given the designs provided, I assume we expect to display ONE author only per blog post card
-      name: rawBlogPost._embedded.author[0]?.name,
-      link: rawBlogPost._embedded.author[0]?.link
-    },
+    // Given the designs provided, I assume we expect to display ONE author only per blog post card
+    author: rawBlogPost._embedded.author[0],
     date: formatDate(rawBlogPost.date),
-    imageSourceUrl: rawBlogPost._embedded['wp:featuredmedia'][0].source_url,
+    imageSourceUrl: fetchImageSourceUrl(rawBlogPost),
     groups: rawBlogPost
       ._embedded['wp:term']
       .reduce((arr, nestedArray) => [...arr, ...nestedArray], [])

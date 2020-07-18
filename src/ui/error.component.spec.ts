@@ -12,8 +12,4 @@ describe('ErrorComponent', () => {
   it('should feature a BEM error member modifier for the wrapper element', () => {
     expect(compiledSource).toContain('__error');
   });
-  
-  it('should feature a Vanilla framework icon in the returned compiled source', () => {
-    expect(compiledSource).toContain('p-icon--error');
-  });
 });
