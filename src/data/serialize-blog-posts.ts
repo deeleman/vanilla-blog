@@ -14,7 +14,7 @@ const fetchImageSourceUrl = (rawBlogPost: RawBlogPost):string => {
   try {
     return rawBlogPost._embedded['wp:featuredmedia'][0].source_url;
   } catch {
-    throw new Error(`Blog post #${rawBlogPost.id}, titled as ${rawBlogPost.title}, does not feature an image.`)
+    throw new Error(`Blog post #${rawBlogPost.id}, titled as "${rawBlogPost.title.rendered}", does not feature an image.`)
   }
 };
 
@@ -28,7 +28,10 @@ export const serializeBlogPosts = (rawBlogPosts: RawBlogPosts): BlogPosts => {
     title: rawBlogPost.title.rendered,
     link: rawBlogPost.link,
     // Given the designs provided, I assume we expect to display ONE author only per blog post card
-    author: rawBlogPost._embedded.author[0],
+    author: {
+      name: rawBlogPost._embedded.author[0].name,
+      link: rawBlogPost._embedded.author[0].link
+    },
     date: formatDate(rawBlogPost.date),
     imageSourceUrl: fetchImageSourceUrl(rawBlogPost),
     groups: rawBlogPost

@@ -57,4 +57,13 @@ describe('serializeBlogPosts', () => {
     expect(serializedBlogPosts[0].groups)
       .toEqual(dataFixtures[0].groups);
   });
+
+  it('should populate "groups" data with data extracted from the "category" taxonomy prop if no "group" is available', () => {
+    const rawBlogPostsMock = rawDataFixtures;
+    rawBlogPostsMock[0]._embedded['wp:featuredmedia'] = undefined;
+    const serializeMalformedRawBlogPosts = () => serializeBlogPosts(rawBlogPostsMock);
+
+    expect(serializeMalformedRawBlogPosts)
+      .toThrowError('Blog post #97041, titled as "Canonical通过Flutter支持Linux桌面应用", does not feature an image.')
+  });
 });
