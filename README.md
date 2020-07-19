@@ -2,13 +2,17 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c2a9a0cf-8752-4aa1-8066-df2a5d6f79e2/deploy-status)](https://app.netlify.com/sites/jovial-borg-cf1799/deploys)
 [![Build Status](https://travis-ci.org/deeleman/vanilla-blog.svg?branch=master)](https://travis-ci.org/deeleman/vanilla-blog)
 [![Coverage Status](https://coveralls.io/repos/github/deeleman/vanilla-blog/badge.svg?branch=master)](https://coveralls.io/github/deeleman/vanilla-blog?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub license](https://img.shields.io/github/license/deeleman/vanilla-blog.svg)](https://github.com/deeleman/vanilla-blog/blob/master/LICENSE)
+[![GitHub version](https://badge.fury.io/gh/deeleman%2Fvanilla-blog.svg)](https://github.com/deeleman/vanilla-blog)
+
 
 Vanilla Blog is a personal project aimed to implement basic blog post components leveraging the [Vanilla framework](https://vanillaframework.io/), along with custom SASS, TypeScript and plain HTML code. For the sake of cross-browser compatibility, this project implements polyfills and coding strategies to extend support to old legacy browsers, such as MSIE11.
 
 <img width="1279" alt="Screen Shot 2020-07-15 at 1 33 25 AM" src="https://user-images.githubusercontent.com/1104146/87541318-5b2e0b80-c6a1-11ea-8f59-00fcbf86e3be.png">
 
 A **live running build** of this project is available at https://my-vanilla-blog.netlify.app.
+
+[![Website my-vanilla-blog.netlify.app](https://img.shields.io/website-up-down-green-red/https/my-vanilla-blog.netlify.app.svg)](https://my-vanilla-blog.netlify.app)
 
 ## Setting up your environment
 The minimum requirements for running this project, either on development or production mode, and its development scripts are `node v12.16.0` and `npm v.6.14.15`, or later versions. Probably this project will run smoothly on older versions of `node` and `npm` but we recommend using the latest [LTS versions](https://nodejs.org/).
