@@ -1,4 +1,4 @@
-import { slugify } from './ui.helpers';
+import { slugify, renderHtml } from './ui.helpers';
 
 describe('UI Helpers', () => {
   describe('slugify', () => {
@@ -22,6 +22,27 @@ describe('UI Helpers', () => {
     it('should allow to optionally configure different joining chars in resulting slug', () => {
       expect(slugify('Cloud and Server', '_')).toEqual<string>('cloud_and_server');
       expect(slugify('Cloud and Server', '+')).toEqual<string>('cloud+and+server');
+    });
+  });
+
+  describe('renderHtml', () => {
+    const originalQuerySelector = global.document.querySelector;
+    const querySelectorSpyDefinition = { innerHTML: undefined };
+    const querySelectorSpy = jest.fn().mockImplementation(() => querySelectorSpyDefinition);
+
+    beforeAll(() => { global.document.querySelector = querySelectorSpy });
+    afterAll(() => { global.document.querySelector = originalQuerySelector });
+
+    it('should query the DOM for the selector given', () => {
+      renderHtml('.test-selector', '<p>Test html content</p>');
+
+      expect(querySelectorSpy).toHaveBeenCalledWith('.test-selector');
+    });
+
+    it('should inject the HTML string passed into the selector\'s inner HTML', () => {
+      renderHtml('.test-selector', '<p>Test html content</p>');
+
+      expect(querySelectorSpyDefinition.innerHTML).toEqual('<p>Test html content</p>');
     });
   });
 });

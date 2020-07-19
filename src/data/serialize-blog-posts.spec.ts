@@ -1,6 +1,6 @@
-import { serializeBlogPosts } from './serialize-blog-posts';
-import { rawDataFixtures, dataFixtures } from './test';
+import { consoleSpy, rawDataFixtures, dataFixtures } from './test';
 import { BlogPosts } from './data.models';
+import { serializeBlogPosts } from './serialize-blog-posts';
 
 describe('serializeBlogPosts', () => {
   let serializedBlogPosts: BlogPosts;
@@ -62,9 +62,14 @@ describe('serializeBlogPosts', () => {
     const rawBlogPostsMock = rawDataFixtures;
     rawBlogPostsMock[0]._embedded['wp:featuredmedia'] = undefined;
     const serializedMalformedRawBlogPosts =  serializeBlogPosts(rawBlogPostsMock);
-    const imagelessBlogPost = serializedMalformedRawBlogPosts[0]
+    const imagelessBlogPost = serializedMalformedRawBlogPosts[0];
+
+    
 
     expect(imagelessBlogPost.imageSourceUrl)
       .toBeUndefined();
+
+    expect(consoleSpy)
+      .toHaveBeenCalled();
   });
 });

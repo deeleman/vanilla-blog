@@ -13,8 +13,8 @@
     "start": "parcel src/index.html -p 8888",
     "prebuild": "rimraf ./dist",
     "build": "parcel build src/index.html",
-    "test": "jest",
-    "test:ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "test": "jest --silent",
+    "test:ci": "jest --silent --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src/**/*.ts --no-error-on-unmatched-pattern"
   },
   "dependencies": {

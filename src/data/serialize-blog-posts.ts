@@ -14,7 +14,7 @@ const fetchImageSourceUrl = (rawBlogPost: RawBlogPost): string | undefined => {
   try {
     return rawBlogPost._embedded['wp:featuredmedia'][0].source_url;
   } catch {
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line no-console
       console.error(`Blog post #${rawBlogPost.id}, titled as "${rawBlogPost.title.rendered}", does not feature an image.`)
     }
