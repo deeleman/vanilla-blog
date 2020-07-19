@@ -10,11 +10,14 @@ const formatDate = (dateString: string): string => {
   return [date.getUTCDate(), months[date.getUTCMonth()], date.getFullYear()].join(' ');
 };
 
-const fetchImageSourceUrl = (rawBlogPost: RawBlogPost):string => {
+const fetchImageSourceUrl = (rawBlogPost: RawBlogPost): string | undefined => {
   try {
     return rawBlogPost._embedded['wp:featuredmedia'][0].source_url;
   } catch {
-    throw new Error(`Blog post #${rawBlogPost.id}, titled as "${rawBlogPost.title.rendered}", does not feature an image.`)
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.error(`Blog post #${rawBlogPost.id}, titled as "${rawBlogPost.title.rendered}", does not feature an image.`)
+    }
   }
 };
 

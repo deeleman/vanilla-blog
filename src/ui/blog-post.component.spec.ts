@@ -51,4 +51,13 @@ describe('BlogPostComponent', () => {
     expect(compiledOutput)
       .toContain(`datetime="${blogPost.date}"`);
   });
+
+  it('should not feature an image element if the input blog post lacks a populated <imageSourceUrl> property', () => {
+    const imageLessBlogPost: BlogPost = { ...blogPost, imageSourceUrl: undefined  };
+    const compiledImagelessOutput = blogPostComponent.compile(imageLessBlogPost);
+
+    expect(compiledImagelessOutput)
+      .not
+      .toContain('<img');
+  });
 });

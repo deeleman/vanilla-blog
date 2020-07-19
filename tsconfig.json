@@ -12,7 +12,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "strict": true, 
-    "types": ["jest"],
+    "types": ["jest", "node"],
     "outDir": "./dist"
   },
   "exclude": [

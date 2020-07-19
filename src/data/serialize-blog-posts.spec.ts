@@ -58,12 +58,13 @@ describe('serializeBlogPosts', () => {
       .toEqual(dataFixtures[0].groups);
   });
 
-  it('should populate "groups" data with data extracted from the "category" taxonomy prop if no "group" is available', () => {
+  it('should degrade gracefully when no image is available in the raw blog posts dataset', () => {
     const rawBlogPostsMock = rawDataFixtures;
     rawBlogPostsMock[0]._embedded['wp:featuredmedia'] = undefined;
-    const serializeMalformedRawBlogPosts = () => serializeBlogPosts(rawBlogPostsMock);
+    const serializedMalformedRawBlogPosts =  serializeBlogPosts(rawBlogPostsMock);
+    const imagelessBlogPost = serializedMalformedRawBlogPosts[0]
 
-    expect(serializeMalformedRawBlogPosts)
-      .toThrowError('Blog post #97041, titled as "Canonical通过Flutter支持Linux桌面应用", does not feature an image.')
+    expect(imagelessBlogPost.imageSourceUrl)
+      .toBeUndefined();
   });
 });

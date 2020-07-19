@@ -13,11 +13,7 @@ export class BlogPostComponent implements Component {
         </header>
     
         <div class="blog-post-card__content">
-          <div class="content__image">
-            <a href="${post.link}" tabindex="-1">
-              <img src="${post.imageSourceUrl}" alt="${post.title}">
-            </a>
-          </div>
+          ${this.compileContentImage(post) || ''}
     
           <h4 class="content__title">
             <a href="${post.link}">
@@ -36,5 +32,16 @@ export class BlogPostComponent implements Component {
         </p>
       </article>
     `);
+  }
+
+  private compileContentImage(post: BlogPost): string | undefined {
+    if (post.imageSourceUrl) {
+      return `
+        <div class="content__image">
+          <a href="${post.link}" tabindex="-1">
+            <img src="${post.imageSourceUrl}" alt="${post.title}">
+          </a>
+        </div>`;
+    }
   }
 }

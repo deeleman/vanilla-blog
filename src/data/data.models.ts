@@ -23,7 +23,7 @@ export interface BlogPost {
     link: string;
   }
   date: string;
-  imageSourceUrl: string;
+  imageSourceUrl: string | undefined;
   groups: Array<{ name: string; link: string }>;
 }
 
